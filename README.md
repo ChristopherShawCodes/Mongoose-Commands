@@ -37,7 +37,7 @@ Resource: http://mongoosejs.com/docs/index.html
 
 // ...retrieve an array of documents matching the query object criteria
 
-`User.find({name:'Jessica'}) 
+	`User.find({name:'Jessica'}) 
     .then(usersNamedJessica => {
         // logic with usersNamedJessica results
     })
@@ -48,7 +48,7 @@ Resource: http://mongoosejs.com/docs/index.html
 
 // ...retrieve 1 document (the first record found) matching the query object criteria
 
-`User.findOne({_id: '5d34d361db64c9267ed91f73'})
+	`User.findOne({_id: '5d34d361db64c9267ed91f73'})
     .then(user => {
         // logic with single user object result
     })
@@ -59,20 +59,20 @@ Resource: http://mongoosejs.com/docs/index.html
 
 // ...create a new document to store in the User collection and save it to the DB.
 
-`const bob = new User(req.body);
-// req.body is an object containing all the users data.
-// if we look at req.body as an object literal it would look like this
+	`const bob = new User(req.body);
+	// req.body is an object containing all the users data.
+	// if we look at req.body as an object literal it would look like this
 	/*
      * req.body = {
      *		"name": "Bob Ross",
      *		"age": 42
      *	}
     **/
-bob.save()
-    .then(newUser => {
+	bob.save()
+    	.then(newUser => {
         // logic with succesfully saved newUser object
-    })
-    .catch(err => res.json(err));`
+   	 })
+   	 .catch(err => res.json(err));`
     
  // If there's an error and the record was not saved, this (err) will contain validation errors.
 
@@ -82,8 +82,8 @@ bob.save()
 
  // ...create a new document to store in the User collection and save it to the DB.
  
- `const { userData } = req.body;
- User.create(userData)
+ 	`const { userData } = req.body;
+ 	User.create(userData)
      .then(newUser => {
          // logic with succesfully saved newUser object
      })
@@ -97,7 +97,7 @@ bob.save()
 
 // ...delete all documents of the User collection
 
-`User.remove()
+	`User.remove()
     .then(deletedUsers => {
         // logic (if any) with successfully removed deletedUsers object
     })
@@ -109,7 +109,7 @@ bob.save()
 
 // ...delete 1 document that matches the query object criteria
 
-`User.remove({_id: '5d34d361db64c9267ed91f73'})
+	`User.remove({_id: '5d34d361db64c9267ed91f73'})
     .then(deletedUser => {
         // logic (if any) with successfully removed deletedUser object
     })
@@ -121,7 +121,7 @@ bob.save()
 
 // ...update 1 document that matches the query object criteria
 
-`User.updateOne({name:'Bob Ross'}, {
+	`User.updateOne({name:'Bob Ross'}, {
     name: 'Ross Bob',
     $push: {pets: {name: 'Sprinkles', type: 'Chubby Unicorn' }}
 })
@@ -136,7 +136,7 @@ ADVANCED QUERIES
 
 //Alternative way to update a record
 
-`User.findOne({name: 'Bob Ross'})
+	`User.findOne({name: 'Bob Ross'})
     .then(user => {
         user.name = 'Rob Boss';
         user.pets.push({name: 'Sprinkles', type: 'Chubby Unicorn'});
@@ -148,7 +148,7 @@ ADVANCED QUERIES
 
 //Validate for uniqueness before creating new Database entry
 
-`User.exists({name: req.body.name})
+	`User.exists({name: req.body.name})
     .then(userExists => {
         if (userExists) {
             // Promise.reject() will activate the .catch() below.
